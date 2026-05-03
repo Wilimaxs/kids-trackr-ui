@@ -1,4 +1,4 @@
-import 'package:ppob_koperasi_payment/model/user.dart';
+import 'package:kids_trakr/model/user.dart';
 
 class LoginResponse {
   final User? user;

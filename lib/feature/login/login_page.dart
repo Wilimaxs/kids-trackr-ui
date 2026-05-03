@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ppob_koperasi_payment/feature/login/widgets/another_login.dart';
-import 'package:ppob_koperasi_payment/feature/login/widgets/form_login.dart';
-import 'package:ppob_koperasi_payment/feature/login/widgets/signup_from_login.dart';
-import 'package:ppob_koperasi_payment/utils/theme/app_color.dart';
+import 'package:kids_trakr/feature/login/widgets/another_login.dart';
+import 'package:kids_trakr/feature/login/widgets/form_login.dart';
+import 'package:kids_trakr/feature/login/widgets/signup_from_login.dart';
+import 'package:kids_trakr/utils/theme/app_color.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

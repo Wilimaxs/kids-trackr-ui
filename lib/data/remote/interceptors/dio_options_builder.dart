@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:ppob_koperasi_payment/data/local_storage/storage_manager.dart';
-import 'package:ppob_koperasi_payment/feature/auth/authentication.dart';
+import 'package:kids_trakr/data/local_storage/storage_manager.dart';
+import 'package:kids_trakr/feature/auth/authentication.dart';
 
 class DioOptionsBuilder {
   static Future<Options> build({

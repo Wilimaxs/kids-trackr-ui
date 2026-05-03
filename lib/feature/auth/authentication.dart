@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:ppob_koperasi_payment/data/local_storage/storage_manager.dart';
-import 'package:ppob_koperasi_payment/model/user.dart';
-import 'package:ppob_koperasi_payment/routes/app_pages.dart';
+import 'package:kids_trakr/data/local_storage/storage_manager.dart';
+import 'package:kids_trakr/model/user.dart';
+import 'package:kids_trakr/routes/app_pages.dart';
 
 enum AuthStatus { unknown, authenticated, unauthenticated, onboarded }
 

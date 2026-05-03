@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:ppob_koperasi_payment/feature/home/home_controller.dart';
+import 'package:kids_trakr/feature/home/home_controller.dart';
 
 import 'bottom_navigation_controller.dart';
 

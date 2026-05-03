@@ -1,4 +1,4 @@
-name: ppob_koperasi_payment
+name: kids_trakr
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -39,7 +39,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
-    - assets/images/
 
   fonts:
     - family: PlusJakartaSans

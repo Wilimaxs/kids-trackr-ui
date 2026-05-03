@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:ppob_koperasi_payment/feature/auth/authentication.dart';
+import 'package:kids_trakr/feature/auth/authentication.dart';
 
 class ErrorHandler {
   static Function()? onUnauthorized;

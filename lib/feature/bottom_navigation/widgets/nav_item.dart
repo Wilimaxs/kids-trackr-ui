@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ppob_koperasi_payment/feature/bottom_navigation/bottom_navigation_controller.dart';
-import 'package:ppob_koperasi_payment/utils/theme/app_color.dart';
+import 'package:kids_trakr/feature/bottom_navigation/bottom_navigation_controller.dart';
+import 'package:kids_trakr/utils/theme/app_color.dart';
 
 class NavItem extends GetView<BottomNavigationController> {
   const NavItem({

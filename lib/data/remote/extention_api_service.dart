@@ -1,4 +1,4 @@
-import 'package:ppob_koperasi_payment/data/remote/api_response.dart';
+import 'package:kids_trakr/data/remote/api_response.dart';
 
 extension ApiResponseExtension<T> on Future<ApiResponse<T>> {
   Future<T> get validateResponse async {

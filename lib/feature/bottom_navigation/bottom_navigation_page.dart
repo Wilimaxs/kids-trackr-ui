@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ppob_koperasi_payment/feature/bottom_navigation/widgets/nav_item.dart';
-import 'package:ppob_koperasi_payment/feature/bottom_navigation/widgets/qris_item.dart';
-import 'package:ppob_koperasi_payment/feature/home/home_page.dart';
-import 'package:ppob_koperasi_payment/utils/theme/app_color.dart';
+import 'package:kids_trakr/feature/bottom_navigation/widgets/nav_item.dart';
+import 'package:kids_trakr/feature/bottom_navigation/widgets/qris_item.dart';
+import 'package:kids_trakr/feature/home/home_page.dart';
+import 'package:kids_trakr/utils/theme/app_color.dart';
 
 import 'bottom_navigation_controller.dart';
 
