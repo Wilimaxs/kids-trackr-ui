@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
-import 'package:kids_trakr/feature/bottom_navigation/bottom_navigation_binding.dart';
-import 'package:kids_trakr/feature/bottom_navigation/bottom_navigation_page.dart';
+import 'package:kids_trakr/feature/home/home_binding.dart';
 import 'package:kids_trakr/feature/home/home_page.dart';
 import 'package:kids_trakr/feature/loader/loader_page.dart';
 import 'package:kids_trakr/feature/login/login_binding.dart';
@@ -17,14 +16,9 @@ class PageRoutes {
       binding: LoginBinding(),
     ),
     GetPage(
-      name: Routes.bottomNavigation,
-      page: () => const BottomNavigationPage(),
-      binding: BottomNavigationBinding(),
-    ),
-    GetPage(
       name: Routes.home,
       page: () => const HomePage(),
-      binding: BottomNavigationBinding(),
+      binding: HomeBinding(),
     ),
   ];
 }
