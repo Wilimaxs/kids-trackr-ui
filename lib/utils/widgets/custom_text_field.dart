@@ -62,73 +62,102 @@ class CustomTextField extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
         ],
-        Container(
-          decoration: BoxDecoration(
-            color: enabled ? AppColors.white : AppColors.text20,
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: enabled
-                ? [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.04),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
+        FormBuilderField<String>(
+          name: name,
+          initialValue: initialValue,
+          validator: validator,
+          builder: (FormFieldState<String> field) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: enabled ? AppColors.white : AppColors.text20,
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: enabled
+                        ? [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.04),
+                              blurRadius: 10,
+                              offset: const Offset(0, 4),
+                            ),
+                          ]
+                        : null,
+                  ),
+                  child: TextField(
+                    onChanged: (value) {
+                      field.didChange(value);
+                      onChanged?.call(value);
+                    },
+                    decoration: InputDecoration(
+                      hintText: hint,
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      prefixIcon: prefixIcon,
+                      suffixIcon: suffixIcon,
+                      hintStyle: Theme.of(
+                        context,
+                      ).textTheme.bodyMedium?.copyWith(color: AppColors.text50),
+                      contentPadding:
+                          contentPadding ??
+                          const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      fillColor: Colors.transparent,
+                      filled: true,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: field.hasError
+                            ? const BorderSide(color: AppColors.error)
+                            : const BorderSide(color: AppColors.outlineLight),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: field.hasError ? AppColors.error : AppColors.primaryLight,
+                          width: 1.5,
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: AppColors.outlineLight),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: AppColors.error),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: AppColors.error,
+                          width: 1.5,
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      errorText: null,
+                      errorStyle: const TextStyle(height: 0),
                     ),
-                  ]
-                : null,
-          ),
-          child: FormBuilderTextField(
-            name: name,
-            initialValue: initialValue,
-            decoration: InputDecoration(
-              hintText: hint,
-              floatingLabelBehavior: FloatingLabelBehavior.never,
-              prefixIcon: prefixIcon,
-              suffixIcon: suffixIcon,
-              hintStyle: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(color: AppColors.text50),
-              contentPadding:
-                  contentPadding ??
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              fillColor: Colors.transparent,
-              filled: true,
-              enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.outlineLight),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: AppColors.primaryLight,
-                  width: 1.5,
+                    obscureText: obscureText,
+                    readOnly: enabled ? readOnly : true,
+                    enabled: enabled,
+                    keyboardType: keyboardType,
+                    textInputAction: textInputAction ?? TextInputAction.done,
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              disabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.outlineLight),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              errorBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: AppColors.error),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: AppColors.error,
-                  width: 1.5,
-                ),
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
-            obscureText: obscureText,
-            readOnly: enabled ? readOnly : true,
-            enabled: enabled,
-            validator: validator,
-            keyboardType: keyboardType,
-            onChanged: onChanged,
-            textInputAction: textInputAction ?? TextInputAction.done,
-          ),
+                if (field.hasError) ...[
+                  const SizedBox(height: 4),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: Text(
+                      field.errorText ?? '',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: AppColors.error,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                  ),
+                ],
+              ],
+            );
+          },
         ),
       ],
     );

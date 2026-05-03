@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:kids_trakr/feature/login/login_controller.dart';
+import 'package:kids_trakr/utils/logic/validator.dart';
 import 'package:kids_trakr/utils/theme/app_color.dart';
 import 'package:kids_trakr/utils/widgets/custom_text_field.dart';
 import 'package:kids_trakr/utils/widgets/primary_button.dart';
@@ -20,6 +21,7 @@ class FormLogin extends GetView<LoginController> {
             label: 'Email',
             required: true,
             hint: 'Enter your email',
+            validator: FormValidator.email,
           ),
           const SizedBox(height: 16.0),
           CustomTextField(
@@ -34,6 +36,7 @@ class FormLogin extends GetView<LoginController> {
               splashColor: AppColors.transparent,
               highlightColor: AppColors.transparent,
             ),
+            validator: FormValidator.password,
           ),
           const SizedBox(height: 24.0),
           PrimaryButton(

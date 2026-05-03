@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kids_trakr/data/remote/api_service.dart';
 import 'package:kids_trakr/data/remote/dio_initializer.dart';
@@ -15,6 +16,11 @@ Future<void> main() async {
   Get.put(DioInitializer());
   Get.put(ApiService(Get.find<DioInitializer>()));
   Get.put(AuthenticationService());
+  SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitUp
+      ]
+  );
   runApp(const MyApp());
 }
 
