@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kids_trakr/feature/login/widgets/another_login.dart';
 import 'package:kids_trakr/feature/login/widgets/form_login.dart';
+import 'package:kids_trakr/feature/login/widgets/role_selector.dart';
 import 'package:kids_trakr/feature/login/widgets/signup_from_login.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,30 +12,32 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 48.0),
-              Text(
-                'Kids \nTrackr',
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                  fontSize: 55
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 48.0),
+                Text(
+                  'Kids \nTrackr',
+                  style: Theme.of(
+                    context,
+                  ).textTheme.displayLarge!.copyWith(fontSize: 55),
                 ),
-              ),
-              const SizedBox(height: 12.0),
-
-
-              // Form Login
-              const FormLogin(),
-              const SizedBox(height: 20.0),
-              // Another Login
-              const AnotherLogin(),
-              const SizedBox(height: 16.0),
-              const SignupFromLogin(),
-              const SizedBox(height: 24.0),
-            ],
+                const SizedBox(height: 12.0),
+                const RoleSelector(),
+                const SizedBox(height: 20.0),
+                // Form Login
+                const FormLogin(),
+                const SizedBox(height: 20.0),
+                // Another Login
+                const AnotherLogin(),
+                const SizedBox(height: 16.0),
+                const SignupFromLogin(),
+                const SizedBox(height: 24.0),
+              ],
+            ),
           ),
         ),
       ),
