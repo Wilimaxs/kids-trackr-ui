@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 48.0),
+                const SizedBox(height: 24.0),
                 Text(
                   'Kids \nTrackr',
                   style: Theme.of(context).textTheme.displayLarge!.copyWith(
