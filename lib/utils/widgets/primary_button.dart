@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kids_trakr/utils/theme/app_color.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;
@@ -29,43 +28,45 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return SizedBox(
       width: width,
       height: height,
       child: ElevatedButton(
         onPressed: (enabled && !isLoading) ? onPressed : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: reverse
-              ? AppColors.white
-              : AppColors.primaryLight,
+          backgroundColor: reverse ? colorScheme.surface : colorScheme.primary,
           foregroundColor: reverse
-          ? (textColor ?? AppColors.black)
-              : (textColor ?? AppColors.white),
-          disabledBackgroundColor: AppColors.text30,
-          disabledForegroundColor: AppColors.text50,
+              ? (textColor ?? colorScheme.onSurface)
+              : (textColor ?? colorScheme.onPrimary),
+          disabledBackgroundColor: colorScheme.outline.withValues(alpha: 0.35),
+          disabledForegroundColor: colorScheme.onSurfaceVariant,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(radius ?? 12.0),
           ),
           side: BorderSide(
-            color: reverse ? AppColors.outlineDark : AppColors.primaryContainerLight,
+            color: reverse ? colorScheme.outline : colorScheme.primaryContainer,
             width: 1.5,
           ),
           elevation: 0,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           textStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
             fontWeight: FontWeight.w600,
+            color: reverse
+                ? (textColor ?? colorScheme.onSurface)
+                : (textColor ?? colorScheme.onPrimary),
           ),
           splashFactory: NoSplash.splashFactory,
           shadowColor: Colors.transparent,
           surfaceTintColor: Colors.transparent,
         ),
         child: isLoading
-            ? const SizedBox(
+            ? SizedBox(
           height: 20,
           width: 20,
           child: CircularProgressIndicator(
             strokeWidth: 2,
-            color: AppColors.white,
+            color: reverse ? colorScheme.primary : colorScheme.onPrimary,
           ),
         )
             : Row(

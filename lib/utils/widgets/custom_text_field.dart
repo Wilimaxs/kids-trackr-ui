@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:kids_trakr/utils/theme/app_color.dart';
 
 class CustomTextField extends StatelessWidget {
   final String name;
@@ -40,6 +39,9 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -49,7 +51,7 @@ class CustomTextField extends StatelessWidget {
               text: label!,
               style: Theme.of(
                 context,
-              ).textTheme.titleMedium?.copyWith(color: AppColors.text80),
+              ).textTheme.titleMedium?.copyWith(color: colorScheme.onSurface),
               children: [
                 if (required)
                   const TextSpan(
@@ -74,7 +76,7 @@ class CustomTextField extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: enabled ? AppColors.white : AppColors.text20,
+                    color: enabled ? colorScheme.surface : colorScheme.surface.withValues(alpha: 0.65),
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: enabled
                         ? [
@@ -87,6 +89,8 @@ class CustomTextField extends StatelessWidget {
                         : null,
                   ),
                   child: TextField(
+                    cursorColor: colorScheme.primary,
+                    style: textTheme.bodyMedium?.copyWith(color: colorScheme.onSurface),
                     onChanged: (value) {
                       field.didChange(value);
                       onChanged?.call(value);
@@ -96,9 +100,7 @@ class CustomTextField extends StatelessWidget {
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                       prefixIcon: prefixIcon,
                       suffixIcon: suffixIcon,
-                      hintStyle: Theme.of(
-                        context,
-                      ).textTheme.bodyMedium?.copyWith(color: AppColors.text50),
+                      hintStyle: textTheme.bodyMedium?.copyWith(color: colorScheme.onSurfaceVariant),
                       contentPadding:
                           contentPadding ??
                           const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -106,28 +108,28 @@ class CustomTextField extends StatelessWidget {
                       filled: true,
                       enabledBorder: OutlineInputBorder(
                         borderSide: field.hasError
-                            ? const BorderSide(color: AppColors.error)
-                            : const BorderSide(color: AppColors.outlineLight),
+                            ? BorderSide(color: colorScheme.error)
+                            : BorderSide(color: colorScheme.outline),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: field.hasError ? AppColors.error : AppColors.primaryLight,
+                          color: field.hasError ? colorScheme.error : colorScheme.primary,
                           width: 1.5,
                         ),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       disabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: AppColors.outlineLight),
+                        borderSide: BorderSide(color: colorScheme.outline),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: AppColors.error),
+                        borderSide: BorderSide(color: colorScheme.error),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: AppColors.error,
+                        borderSide: BorderSide(
+                          color: colorScheme.error,
                           width: 1.5,
                         ),
                         borderRadius: BorderRadius.circular(12),
@@ -148,8 +150,8 @@ class CustomTextField extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 4),
                     child: Text(
                       field.errorText ?? '',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppColors.error,
+                      style: textTheme.bodySmall?.copyWith(
+                            color: colorScheme.error,
                             fontWeight: FontWeight.w500,
                           ),
                     ),

@@ -30,40 +30,51 @@ class StateHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     if (loadingWidget != null && isLoading) {
       return loadingWidget!;
     }
 
     return Stack(
       children: [
-        _buildMainContent(),
+        _buildMainContent(context),
         if (isLoading && loadingWidget == null) ...[
-          const ModalBarrier(dismissible: false, color: Colors.transparent),
+          ModalBarrier(
+            dismissible: false,
+            color: colorScheme.surface.withValues(alpha: 0.08),
+          ),
           Container(
-            color: Colors.black.withAlpha(25),
-            child: const Center(child: CircularProgressIndicator()),
+            color: colorScheme.surface.withValues(alpha: 0.18),
+            child: Center(
+              child: CircularProgressIndicator(color: colorScheme.primary),
+            ),
           ),
         ],
       ],
     );
   }
 
-  Widget _buildMainContent() {
+  Widget _buildMainContent(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     Widget content;
 
     if (isError) {
       content = _buildStateInfo(
+        context,
         icon:
             errorIcon ??
-            const Icon(Icons.error_outline, size: 48, color: Colors.red),
-        message: errorText ?? "Terjadi kesalahan sistem",
+            Icon(Icons.error_outline, size: 48, color: colorScheme.error),
+        message: errorText ?? 'Something went wrong',
       );
     } else if (isEmpty) {
       content = _buildStateInfo(
+        context,
         icon:
             emptyIcon ??
-            const Icon(Icons.inbox_outlined, size: 48, color: Colors.grey),
-        message: emptyText ?? "Data tidak ditemukan",
+            Icon(Icons.inbox_outlined, size: 48, color: colorScheme.outline),
+        message: emptyText ?? 'No data found',
       );
     } else {
       content = child;
@@ -80,7 +91,13 @@ class StateHandle extends StatelessWidget {
     );
   }
 
-  Widget _buildStateInfo({required Widget icon, required String message}) {
+  Widget _buildStateInfo(
+    BuildContext context, {
+    required Widget icon,
+    required String message,
+  }) {
+    final colorScheme = Theme.of(context).colorScheme;
+
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -92,9 +109,9 @@ class StateHandle extends StatelessWidget {
             Text(
               message,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey,
+                color: colorScheme.onSurfaceVariant,
                 decoration: TextDecoration.none,
               ),
             ),

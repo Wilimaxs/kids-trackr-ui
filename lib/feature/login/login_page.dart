@@ -18,17 +18,14 @@ class LoginPage extends StatelessWidget {
             children: [
               const SizedBox(height: 48.0),
               Text(
-                'Login to your Account',
-                style: Theme.of(context).textTheme.displayLarge,
-                softWrap: true,
+                'Kids \nTrackr',
+                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                  fontSize: 55
+                ),
               ),
               const SizedBox(height: 12.0),
-              Text(
-                'Log in to your account using your cooperative membership credentials.',
-                style: Theme.of(context).textTheme.bodyLarge,
-                softWrap: true,
-              ),
-              const SizedBox(height: 20.0),
+
+
               // Form Login
               const FormLogin(),
               const SizedBox(height: 20.0),

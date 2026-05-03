@@ -6,8 +6,8 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Widget>? actions;
   final PreferredSizeWidget? bottom;
-  final Color titleColor;
-  final Color iconColor;
+  final Color? titleColor;
+  final Color? iconColor;
   final double elevation;
   final bool centerTitle;
   final bool showBackButton;
@@ -18,8 +18,8 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.actions,
     this.bottom,
-    this.titleColor = AppColors.text10,
-    this.iconColor = AppColors.primaryLight,
+    this.titleColor,
+    this.iconColor,
     this.elevation = 1,
     this.centerTitle = true,
     this.showBackButton = false,
@@ -28,26 +28,40 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final backgroundColor = isDark ? AppColors.surfaceDark : AppColors.surfaceLight;
+    final effectiveTitleColor =
+        titleColor ?? (isDark ? AppColors.text10 : AppColors.text90);
+    final effectiveIconColor =
+        iconColor ?? (isDark ? AppColors.text10 : AppColors.primaryLight);
+
     return AppBar(
       title: Text(
         title,
         style: Theme.of(
           context,
-        ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+        ).textTheme.bodyLarge?.copyWith(
+              fontWeight: FontWeight.w600,
+              color: effectiveTitleColor,
+            ),
       ),
       actions: actions,
       leading: showBackButton
           ? IconButton(
-              icon: Icon(Icons.arrow_back_ios_new, size: 20, color: iconColor),
+              icon: Icon(
+                Icons.arrow_back_ios_new,
+                size: 20,
+                color: effectiveIconColor,
+              ),
               onPressed: onBackPressed ?? () => Get.back(),
             )
           : null,
       bottom: bottom,
-      backgroundColor: AppColors.white,
+      backgroundColor: backgroundColor,
       elevation: elevation,
-      shadowColor: AppColors.text20,
+      shadowColor: isDark ? AppColors.black.withValues(alpha: 0.35) : AppColors.text20,
       centerTitle: centerTitle,
-      iconTheme: IconThemeData(color: iconColor),
+      iconTheme: IconThemeData(color: effectiveIconColor),
       automaticallyImplyLeading: false,
     );
   }
