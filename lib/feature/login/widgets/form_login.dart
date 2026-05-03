@@ -21,22 +21,32 @@ class FormLogin extends GetView<LoginController> {
             label: 'Email',
             required: true,
             hint: 'Enter your email',
+            keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
             validator: FormValidator.email,
           ),
           const SizedBox(height: 16.0),
-          CustomTextField(
-            name: 'Password',
-            label: 'Password',
-            required: true,
-            hint: 'Enter your password',
-            obscureText: true,
-            suffixIcon: IconButton(
-              icon: const Icon(Icons.visibility_off),
-              onPressed: () {},
-              splashColor: AppColors.transparent,
-              highlightColor: AppColors.transparent,
+          Obx(
+            () => CustomTextField(
+              name: 'Password',
+              label: 'Password',
+              required: true,
+              hint: 'Enter your password',
+              obscureText: !controller.isPasswordVisible.value,
+              keyboardType: TextInputType.visiblePassword,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  controller.isPasswordVisible.value
+                      ? Icons.visibility
+                      : Icons.visibility_off,
+                  color: AppColors.text60,
+                ),
+                onPressed: () => controller.isPasswordVisible.toggle(),
+                splashColor: AppColors.transparent,
+                highlightColor: AppColors.transparent,
+              ),
+              validator: FormValidator.password,
             ),
-            validator: FormValidator.password,
           ),
           const SizedBox(height: 24.0),
           PrimaryButton(

@@ -21,9 +21,16 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 48.0),
                 Text(
                   'Kids \nTrackr',
-                  style: Theme.of(
-                    context,
-                  ).textTheme.displayLarge!.copyWith(fontSize: 55),
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    fontSize: 55,
+                    shadows: [
+                      Shadow(
+                        color: Colors.black.withValues(alpha: 0.3),
+                        blurRadius: 5.0,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 12.0),
                 const RoleSelector(),

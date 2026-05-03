@@ -8,6 +8,7 @@ import 'package:kids_trakr/model/user.dart';
 class LoginController extends BaseController {
   final loginFromKey = GlobalKey<FormBuilderState>();
   final selectedRole = 'Parent'.obs;
+  final isPasswordVisible = false.obs;
 
   void selectRole(String role) {
     selectedRole.value = role;

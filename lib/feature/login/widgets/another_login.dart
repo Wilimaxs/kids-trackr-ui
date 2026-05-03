@@ -19,10 +19,11 @@ class AnotherLogin extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                'Or login with',
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyMedium?.copyWith(color: AppColors.text60),
+                'Or Login With',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppColors.text60,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             const Expanded(

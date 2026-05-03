@@ -52,9 +52,9 @@ class AppTheme {
         titleSmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
 
         // for body text
-        bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-        bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
-        bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
+        bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
 
         // for label styles (untuk teks kecil/button)
         labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
