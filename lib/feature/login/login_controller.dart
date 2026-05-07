@@ -7,6 +7,7 @@ import 'package:kids_trakr/model/user.dart';
 
 class LoginController extends BaseController {
   final loginFromKey = GlobalKey<FormBuilderState>();
+  final authService = Get.find<AuthenticationService>();
   final selectedRole = 'Parent'.obs;
   final isPasswordVisible = false.obs;
 
@@ -17,7 +18,6 @@ class LoginController extends BaseController {
   Future<void> login() async {
     if (!(loginFromKey.currentState?.saveAndValidate() ?? false)) return;
 
-    final authService = Get.find<AuthenticationService>();
     await authService.saveAuthData(
       token: 'mock_login_token',
       user: User(
