@@ -113,6 +113,7 @@ class HomePage extends GetView<HomeController> {
                     desc: controller.homeItems[index].desc,
                     image: controller.homeItems[index].image,
                     color: controller.homeItems[index].color,
+                    onTap: controller.homeItems[index].onTap,
                   );
                 },
               ),
