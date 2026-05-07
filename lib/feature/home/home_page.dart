@@ -23,7 +23,7 @@ class HomePage extends GetView<HomeController> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed:controller.gotToProfile,
             icon: const Icon(Icons.person_3_rounded, size: 24),
           ),
         ],

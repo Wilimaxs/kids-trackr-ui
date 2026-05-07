@@ -4,6 +4,7 @@ import 'package:kids_trakr/feature/auth/authentication.dart';
 import 'package:kids_trakr/gen/assets.gen.dart';
 import 'package:kids_trakr/model/home_item.dart';
 import 'package:flutter/material.dart';
+import 'package:kids_trakr/routes/app_pages.dart';
 
 class HomeController extends BaseController {
   final authService = Get.find<AuthenticationService>();
@@ -54,6 +55,11 @@ class HomeController extends BaseController {
       onTap: () {},
     ),
   ];
+
+  void gotToProfile() {
+    Get.toNamed(Routes.profile);
+  }
+
 
   Future<void> logout() async {
     await authService.logout();
