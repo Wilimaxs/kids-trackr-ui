@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:kids_trakr/gen/assets.gen.dart';
+
+class HeaderProfile extends StatelessWidget {
+  const HeaderProfile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.3,
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(Assets.images.profile.path, width: 120, height: 120),
+          Text(
+            "Nita Sarah",
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.w700,
+              letterSpacing: 1,
+              shadows: const [
+                Shadow(
+                  color: Colors.black45,
+                  blurRadius: 5.0,
+                  offset: Offset(0, 1),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            "Hp: 08123456789",
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+        ],
+      ),
+    );
+  }
+}

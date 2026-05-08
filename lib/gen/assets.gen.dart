@@ -46,6 +46,9 @@ class $AssetsImagesGen {
   AssetGenImage get nutrition =>
       const AssetGenImage('assets/images/Nutrition.png');
 
+  /// File path: assets/images/profile.png
+  AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
+
   /// File path: assets/images/schedule.png
   AssetGenImage get schedule =>
       const AssetGenImage('assets/images/schedule.png');
@@ -57,6 +60,7 @@ class $AssetsImagesGen {
     message,
     news,
     nutrition,
+    profile,
     schedule,
   ];
 }
