@@ -31,8 +31,9 @@ class HeaderSchedule extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            "updated annually",
+            "The student class schedule is updated every semester to reflect the current situation.",
             style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

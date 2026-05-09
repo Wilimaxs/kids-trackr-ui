@@ -31,8 +31,9 @@ class HeaderAttendance extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            "Updated daily",
+            "Comprehensive monitoring of student attendance",
             style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
           ),
         ],
       ),
