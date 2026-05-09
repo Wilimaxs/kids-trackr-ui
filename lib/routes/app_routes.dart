@@ -8,4 +8,5 @@ class Routes {
   static const schedule = '/schedule';
   static const attendance = '/attendance';
   static const message = '/message';
+  static const news = '/news';
 }

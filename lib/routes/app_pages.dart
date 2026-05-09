@@ -8,6 +8,8 @@ import 'package:kids_trakr/feature/login/login_binding.dart';
 import 'package:kids_trakr/feature/login/login_page.dart';
 import 'package:kids_trakr/feature/message/message_binding.dart';
 import 'package:kids_trakr/feature/message/message_page.dart';
+import 'package:kids_trakr/feature/news/news_binding.dart';
+import 'package:kids_trakr/feature/news/news_page.dart';
 import 'package:kids_trakr/feature/profile/profile_binding.dart';
 import 'package:kids_trakr/feature/profile/profile_page.dart';
 import 'package:kids_trakr/feature/schedule/schedule_binding.dart';
@@ -47,6 +49,11 @@ class PageRoutes {
       name: Routes.message,
       page: () => const MessagePage(),
       binding: MessageBinding(),
+    ),
+    GetPage(
+      name: Routes.news,
+      page: () => const NewsPage(),
+      binding: NewsBinding(),
     ),
   ];
 }

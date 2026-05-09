@@ -43,7 +43,7 @@ class HomeController extends BaseController {
       desc: "Latest \nSchools",
       image: Assets.images.news.path,
       color: const Color(0xFFfff58a),
-      onTap: () {},
+      onTap: () => Get.toNamed(Routes.news),
     ),
     HomeItem(
       title: "Nutrition",
