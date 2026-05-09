@@ -15,7 +15,7 @@ class HomeController extends BaseController {
       desc: "Subject",
       image: Assets.images.schedule.path,
       color: const Color(0xFF9fa9ff),
-      onTap: () {},
+      onTap: () => Get.toNamed(Routes.schedule),
     ),
     HomeItem(
       title: "Attendance",
@@ -36,9 +36,7 @@ class HomeController extends BaseController {
       desc: "communication",
       image: Assets.images.message.path,
       color: const Color(0xFFff9f9f),
-      onTap: () {
-        print("Message");
-      },
+      onTap: () {},
     ),
     HomeItem(
       title: "News",
@@ -59,7 +57,6 @@ class HomeController extends BaseController {
   void gotToProfile() {
     Get.toNamed(Routes.profile);
   }
-
 
   Future<void> logout() async {
     await authService.logout();

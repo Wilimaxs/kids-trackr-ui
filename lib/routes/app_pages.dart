@@ -6,6 +6,8 @@ import 'package:kids_trakr/feature/login/login_binding.dart';
 import 'package:kids_trakr/feature/login/login_page.dart';
 import 'package:kids_trakr/feature/profile/profile_binding.dart';
 import 'package:kids_trakr/feature/profile/profile_page.dart';
+import 'package:kids_trakr/feature/schedule/schedule_binding.dart';
+import 'package:kids_trakr/feature/schedule/schedule_page.dart';
 
 part 'app_routes.dart';
 
@@ -26,6 +28,11 @@ class PageRoutes {
       name: Routes.profile,
       page: () => const ProfilePage(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: Routes.schedule,
+      page: () => const SchedulePage(),
+      binding: ScheduleBinding(),
     ),
   ];
 }
