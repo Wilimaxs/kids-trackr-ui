@@ -22,7 +22,7 @@ class HomeController extends BaseController {
       desc: "Child's \nPresence",
       image: Assets.images.attendance.path,
       color: const Color(0xFFceb8ff),
-      onTap: () {},
+      onTap: () => Get.toNamed(Routes.attendance),
     ),
     HomeItem(
       title: "Evaluation",

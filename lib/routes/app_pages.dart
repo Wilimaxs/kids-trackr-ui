@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:kids_trakr/feature/attendance/attendance_binding.dart';
+import 'package:kids_trakr/feature/attendance/attendance_page.dart';
 import 'package:kids_trakr/feature/home/home_binding.dart';
 import 'package:kids_trakr/feature/home/home_page.dart';
 import 'package:kids_trakr/feature/loader/loader_page.dart';
@@ -33,6 +35,11 @@ class PageRoutes {
       name: Routes.schedule,
       page: () => const SchedulePage(),
       binding: ScheduleBinding(),
+    ),
+    GetPage(
+      name: Routes.attendance,
+      page: () => const AttendancePage(),
+      binding: AttendanceBinding(),
     ),
   ];
 }

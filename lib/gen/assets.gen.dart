@@ -32,6 +32,10 @@ class $AssetsImagesGen {
   AssetGenImage get attendance =>
       const AssetGenImage('assets/images/Attendance.png');
 
+  /// File path: assets/images/AttendancePage.png
+  AssetGenImage get attendancePage =>
+      const AssetGenImage('assets/images/AttendancePage.png');
+
   /// File path: assets/images/Deadline.png
   AssetGenImage get deadline =>
       const AssetGenImage('assets/images/Deadline.png');
@@ -60,6 +64,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
     attendance,
+    attendancePage,
     deadline,
     evaluation,
     message,
