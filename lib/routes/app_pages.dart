@@ -6,6 +6,8 @@ import 'package:kids_trakr/feature/home/home_page.dart';
 import 'package:kids_trakr/feature/loader/loader_page.dart';
 import 'package:kids_trakr/feature/login/login_binding.dart';
 import 'package:kids_trakr/feature/login/login_page.dart';
+import 'package:kids_trakr/feature/message/message_binding.dart';
+import 'package:kids_trakr/feature/message/message_page.dart';
 import 'package:kids_trakr/feature/profile/profile_binding.dart';
 import 'package:kids_trakr/feature/profile/profile_page.dart';
 import 'package:kids_trakr/feature/schedule/schedule_binding.dart';
@@ -40,6 +42,11 @@ class PageRoutes {
       name: Routes.attendance,
       page: () => const AttendancePage(),
       binding: AttendanceBinding(),
+    ),
+    GetPage(
+      name: Routes.message,
+      page: () => const MessagePage(),
+      binding: MessageBinding(),
     ),
   ];
 }

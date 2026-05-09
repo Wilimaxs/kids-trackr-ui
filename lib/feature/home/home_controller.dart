@@ -36,7 +36,7 @@ class HomeController extends BaseController {
       desc: "communication",
       image: Assets.images.message.path,
       color: const Color(0xFFff9f9f),
-      onTap: () {},
+      onTap: () => Get.toNamed(Routes.message),
     ),
     HomeItem(
       title: "News",

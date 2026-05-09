@@ -7,4 +7,5 @@ class Routes {
   static const profile = '/profile';
   static const schedule = '/schedule';
   static const attendance = '/attendance';
+  static const message = '/message';
 }
