@@ -34,37 +34,47 @@ class TileMenu extends StatelessWidget {
         return CustomScrollView(
           controller: scrollController,
           slivers: [
-            if (isExpanded)
-              SliverAppBar(
-                pinned: true,
-                backgroundColor: Colors.white,
-                surfaceTintColor: Colors.transparent,
-                centerTitle: true,
-                title: Text(
-                  controller.tabs[controller.selectedIndex.value],
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
+            SliverToBoxAdapter(
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                height: isExpanded ? kToolbarHeight : 0,
+                child: AnimatedOpacity(
+                  opacity: isExpanded ? 1.0 : 0.0,
+                  duration: const Duration(milliseconds: 250),
+                  child: AppBar(
+                    backgroundColor: Colors.white,
+                    surfaceTintColor: Colors.transparent,
+                    centerTitle: true,
+                    title: Text(
+                      controller.tabs[controller.selectedIndex.value],
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                    leading: IconButton(
+                      icon: const Icon(Icons.chevron_left),
+                      onPressed: () {
+                        if (controller.selectedIndex.value > 0) {
+                          controller.selectedIndex.value--;
+                        }
+                      },
+                    ),
+                    actions: [
+                      IconButton(
+                        icon: const Icon(Icons.chevron_right),
+                        onPressed: () {
+                          if (controller.selectedIndex.value <
+                              controller.tabs.length - 1) {
+                            controller.selectedIndex.value++;
+                          }
+                        },
                       ),
-                ),
-                leading: IconButton(
-                  icon: const Icon(Icons.chevron_left),
-                  onPressed: () {
-                    if (controller.selectedIndex.value > 0) {
-                      controller.selectedIndex.value--;
-                    }
-                  },
-                ),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.chevron_right),
-                    onPressed: () {
-                      if (controller.selectedIndex.value < controller.tabs.length - 1) {
-                        controller.selectedIndex.value++;
-                      }
-                    },
+                    ],
                   ),
-                ],
+                ),
               ),
+            ),
             SliverPadding(
               padding: const EdgeInsets.only(top: 16, bottom: 24),
               sliver: SliverList(
