@@ -50,7 +50,7 @@ class HomeController extends BaseController {
       desc: "Daily \nMeals",
       image: Assets.images.nutrition.path,
       color: const Color(0xFFb8ffba),
-      onTap: () {},
+      onTap: () => Get.toNamed(Routes.nutrition),
     ),
   ];
 

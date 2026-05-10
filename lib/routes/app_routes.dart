@@ -9,4 +9,5 @@ class Routes {
   static const attendance = '/attendance';
   static const message = '/message';
   static const news = '/news';
+  static const nutrition = '/nutrition';
 }
