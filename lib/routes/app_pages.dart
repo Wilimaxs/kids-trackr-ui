@@ -9,6 +9,8 @@ import 'package:kids_trakr/feature/login/login_page.dart';
 import 'package:kids_trakr/feature/message/message_binding.dart';
 import 'package:kids_trakr/feature/message/message_page.dart';
 import 'package:kids_trakr/feature/news/news_binding.dart';
+import 'package:kids_trakr/feature/news/news_detail/news_detail_binding.dart';
+import 'package:kids_trakr/feature/news/news_detail/news_detail_page.dart';
 import 'package:kids_trakr/feature/news/news_page.dart';
 import 'package:kids_trakr/feature/nutrition/nutrition_binding.dart';
 import 'package:kids_trakr/feature/nutrition/nutrition_page.dart';
@@ -56,6 +58,11 @@ class PageRoutes {
       name: Routes.news,
       page: () => const NewsPage(),
       binding: NewsBinding(),
+    ),
+    GetPage(
+      name: Routes.newsDetail,
+      page: () => const NewsDetailPage(),
+      binding: NewsDetailBinding(),
     ),
     GetPage(
       name: Routes.nutrition,

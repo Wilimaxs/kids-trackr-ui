@@ -1,6 +1,8 @@
+import 'package:get/get.dart';
 import 'package:kids_trakr/data/base/base_controller.dart';
 import 'package:kids_trakr/model/news_item.dart';
 import 'package:kids_trakr/gen/assets.gen.dart';
+import 'package:kids_trakr/routes/app_pages.dart';
 
 class NewsController extends BaseController {
   final List<NewsItem> newsList = [
@@ -8,7 +10,9 @@ class NewsController extends BaseController {
       title: "School Science Fair 2026",
       desc: "Join us for the annual science fair where students showcase their projects.",
       image: Assets.images.firstNews.path,
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(Routes.newsDetail);
+      },
     ),
     NewsItem(
       title: "New Sports Equipment",

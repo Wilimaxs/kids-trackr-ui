@@ -10,4 +10,5 @@ class Routes {
   static const message = '/message';
   static const news = '/news';
   static const nutrition = '/nutrition';
+  static const newsDetail = '/newsDetail';
 }

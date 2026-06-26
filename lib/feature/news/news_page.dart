@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kids_trakr/feature/news/news_controller.dart';
+import 'package:kids_trakr/feature/news/widgets/content_background.dart';
 import 'package:kids_trakr/utils/theme/app_color.dart';
 import 'package:kids_trakr/utils/widgets/primary_appbar.dart';
 
@@ -16,20 +17,7 @@ class NewsPage extends GetView<NewsController> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black45,
-              blurRadius: 8,
-              offset: Offset(0, 5),
-            ),
-          ],
-        ),
+      body: ContentBackground(
         child: ListView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
           itemCount: controller.newsList.length,
